@@ -1,11 +1,13 @@
 
 let bgImage;
+let windowHeight = screen.height;
+let windowWidth = screen.width;
 
-function preload() {
+function preload() { //put the image in project directory and make this a relative path
   bgImage = loadImage('C:\Users\mykal\OneDrive\Desktop\Tap-And-Dash\img\track-sketch.jpg');
 }
 
-function setup() {
+function setup() { //needed to specify windowWidth and windowHeight
   createCanvas(windowWidth, windowHeight);
   background(bgImage);
 }
