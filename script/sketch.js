@@ -2,7 +2,7 @@
 let bgImage;
 
 function preload() {
-  bgImage = loadImage('img\Track Sketch.jpeg');
+  bgImage = loadImage('img\Track Sketch.jpg');
 }
 
 function setup() {
