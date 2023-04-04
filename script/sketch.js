@@ -3,11 +3,11 @@ let bgImage;
 let windowHeight = screen.height;
 let windowWidth = screen.width;
 
-function preload() { //put the image in project directory and make this a relative path
-  bgImage = loadImage('img\track-sketch.jpg');
+function preload() { 
+  bgImage = loadImage("img/track-sketch.jpg");
 }
 
-function setup() { //needed to specify windowWidth and windowHeight
+function setup() { 
   createCanvas(windowWidth, windowHeight);
   background(bgImage);
 }
