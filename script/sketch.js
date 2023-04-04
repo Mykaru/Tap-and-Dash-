@@ -2,7 +2,7 @@
 let bgImage;
 
 function preload() {
-  bgImage = loadImage('img\Track Sketch.jpg');
+  bgImage = loadImage('C:\Users\mykal\OneDrive\Desktop\Tap-And-Dash\img\track-sketch.jpg');
 }
 
 function setup() {
