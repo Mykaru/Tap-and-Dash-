@@ -1,8 +1,19 @@
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
 
-const img = new Image();
-img.src = 'img\Track Sketch.jpeg';
-img.onload = function() {
-  ctx.drawImage(img, 0, 0);
+let bgImage;
+
+function preload() {
+  bgImage = loadImage('img\Track Sketch.jpeg');
+}
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  background(bgImage);
+}
+
+function draw() {
+  text("put your p5.js code here",10, frameCount % height);
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
