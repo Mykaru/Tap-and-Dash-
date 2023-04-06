@@ -18,15 +18,17 @@ function preload() {
 }
 
 function setup() { 
-  createCanvas(720, 720);
+  createCanvas(1280, 720);
 }
 
 function draw() {
   background(220);
 
-  fill(0,255,100)
+  fill(0,100,255)
   rect(distance1, 100, 50, 50);
 
+
+  fill(0,255,100)
   rect(distance2, 200, 50, 50);
 
   
@@ -36,7 +38,7 @@ function draw() {
 function toggleBoolean1() {
   playerOne = !playerOne;
   if (playerOne) {
-    distance1 += 5; // increment count by 5 each time isTrue is true
+    distance1 += 15; // increment count by 5 each time playerOne is true
   }
 }
 
@@ -56,7 +58,7 @@ document.addEventListener("keydown", function(event) {
 function toggleBoolean2() {
   playerTwo = !playerTwo;
   if (playerTwo) {
-    distance2 += 5; // increment count by 5 each time isTrue is true
+    distance2 += 15; // increment count by 5 each time playerTwo is true
   }
 }
 
