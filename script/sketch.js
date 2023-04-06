@@ -1,5 +1,6 @@
 let playerOne = false;
 let count1 = 0;
+let lastKeyPressed1 = null;
 
 let playerTwo = false;
 let count2 = 0;
@@ -27,15 +28,19 @@ function draw() {
 }
 
 function toggleBoolean() {
-  isTrue = !isTrue;
-  if (isTrue) {
-    count++; // add 1 to count each time isTrue becomes true
+  playerOne = !playerOne;
+  if (playerOne) {
+    count1++; // add 1 to count each time isTrue becomes true
   }
 }
 
 document.addEventListener("keydown", function(event) {
-  if (event.code === "Space") {
+  if (event.code === "ArrowLeft" && lastKeyPressed1 !== "ArrowLeft") {
     toggleBoolean();
-    console.log("playerOne: " + playerOne + ", count1: " + count1);
+    lastKeyPressed1 = "ArrowLeft";
+  } else if (event.code === "ArrowUp" && lastKeyPressed1 !== "ArrowUp") {
+    toggleBoolean();
+    lastKeyPressed1 = "ArrowUp";
   }
+  console.log("playerOne: " + playerOne + ", count1: " + count1);
 });
