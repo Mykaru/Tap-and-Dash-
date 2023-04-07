@@ -2,6 +2,7 @@
 let playerOne = false;
 let distance1 = 0;
 let lastKeyPressed1 = null;
+const threshold = 15
 
 // Player Two //
 let playerTwo = false;
@@ -30,6 +31,11 @@ function draw() {
 
   fill(0,255,100)
   rect(distance2, 200, 50, 50);
+
+  if (distance1 > 20) {
+    rect(200,500,100,100);
+  }
+  
 
   
 
@@ -73,3 +79,19 @@ document.addEventListener("keydown", function(event) {
   console.log("playerTwo: " + playerTwo + ", distance2: " + distance2);
 });
 //
+
+// When a player wins // 
+function checkVariable() {
+  let variableExceededThreshold = false;
+  while (!variableExceededThreshold) {
+    if (distance1 > threshold) {
+      variableExceededThreshold = true;
+      myFunction();
+    }
+  }
+}
+
+function myFunction() {
+  alert("My variable has exceeded the threshold of 10!");
+}
+
