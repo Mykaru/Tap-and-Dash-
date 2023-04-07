@@ -2,7 +2,7 @@
 let playerOne = false;
 let distance1 = 0;
 let lastKeyPressed1 = null;
-const threshold = 15
+const threshold = 1200
 
 // Player Two //
 let playerTwo = false;
@@ -23,23 +23,21 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+  background(bgImage);
 
   fill(0,100,255)
-  rect(distance1, 100, 50, 50);
+  rect(distance1, 480, 50, 50);
 
 
   fill(0,255,100)
-  rect(distance2, 200, 50, 50);
+  rect(distance2, 620, 50, 50);
 
-  if (distance1 > 20) {
-    rect(200,500,100,100);
+  if (distance1 > threshold) {
+    rect(1100,100,100,100);
   }
   
-
-  
-
 }
+
 // Backend Movement System for Player One //
 function toggleBoolean1() {
   playerOne = !playerOne;
