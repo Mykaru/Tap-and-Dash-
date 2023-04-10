@@ -44,6 +44,9 @@ function toggleBoolean1() {
   if (playerOne) {
     distance1 += 15; // increment count by 5 each time playerOne is true
   }
+  if (playerOne = false) {
+    distance1 += 15; // increment count by 5 each time playerOne is true
+  }
 }
 
 document.addEventListener("keydown", function(event) {
@@ -63,6 +66,9 @@ function toggleBoolean2() {
   playerTwo = !playerTwo;
   if (playerTwo) {
     distance2 += 15; // increment count by 5 each time playerTwo is true
+  }
+  if (playerTwo = false) {
+    distance1 += 15; // increment count by 5 each time playerOne is true
   }
 }
 
