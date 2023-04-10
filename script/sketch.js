@@ -1,13 +1,11 @@
 // Player One // 
-let playerOne = false;
+let playerOne = null;
 let distance1 = 0;
-let lastKeyPressed1 = null;
 const threshold = 1200
 
 // Player Two //
-let playerTwo = false;
+let playerTwo = null;
 let distance2 = 0;
-let lastKeyPressed2 = null;
 
 //Background image shit idk // 
 let bgImage;
@@ -35,50 +33,37 @@ function draw() {
   if (distance1 > threshold) {
     rect(1100,100,100,100);
   }
-  
 }
 
 // Backend Movement System for Player One //
-function toggleBoolean1() {
-  playerOne = !playerOne;
-  if (playerOne) {
-    distance1 += 15; // increment count by 5 each time playerOne is true
-  }
-  if (playerOne = false) {
-    distance1 += 15; // increment count by 5 each time playerOne is true
-  }
+function incrementValue1() {
+  distance1 += 15;
 }
 
 document.addEventListener("keydown", function(event) {
-  if (event.code === "ArrowLeft" && lastKeyPressed1 !== "ArrowLeft") {
-    toggleBoolean1();
-    lastKeyPressed1 = "ArrowLeft";
-  } else if (event.code === "ArrowUp" && lastKeyPressed1 !== "ArrowUp") {
-    toggleBoolean1();
-    lastKeyPressed1 = "ArrowUp";
+  if (event.code === "ArrowLeft" && playerOne !== "ArrowLeft") {
+    incrementValue1();
+    playerOne = "ArrowLeft";
+  } else if (event.code === "ArrowUp" && playerOne !== "ArrowUp") {
+    incrementValue1();
+    playerOne = "ArrowUp";
   }
   console.log("playerOne: " + playerOne + ", distance1: " + distance1);
 });
 //
 
 // Backend Movement System for Player One //
-function toggleBoolean2() {
-  playerTwo = !playerTwo;
-  if (playerTwo) {
-    distance2 += 15; // increment count by 5 each time playerTwo is true
-  }
-  if (playerTwo = false) {
-    distance1 += 15; // increment count by 5 each time playerOne is true
-  }
+function incrementValue2() {
+  distance2 += 15;
 }
 
 document.addEventListener("keydown", function(event) {
-  if (event.code === "ArrowRight" && lastKeyPressed2 !== "ArrowRight") {
-    toggleBoolean2();
-    lastKeyPressed2 = "ArrowRight";
-  } else if (event.code === "ArrowDown" && lastKeyPressed2 !== "ArrowDown") {
-    toggleBoolean2();
-    lastKeyPressed2 = "ArrowDown";
+  if (event.code === "ArrowDown" && playerTwo !== "ArrowRight") {
+    incrementValue2();
+    playerOne = "ArrowDown";
+  } else if (event.code === "ArrowDown" && playerTwo !== "ArrowRight") {
+    incrementValue2();
+    playerOne = "ArrowRight";
   }
   console.log("playerTwo: " + playerTwo + ", distance2: " + distance2);
 });
