@@ -47,6 +47,8 @@ document.addEventListener("keydown", function(event) {
   if (event.key === "r") {
     distance1 = 0;
     distance2 = 0;
+
+    console.log("Players reset!")
   }
 });
 
