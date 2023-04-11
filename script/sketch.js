@@ -1,3 +1,5 @@
+gameMode = 2;
+
 // Player One // 
 let playerOne = null;
 let distance1 = 0;
@@ -35,6 +37,11 @@ function draw() {
   }
 }
 
+if (gameMode === 2) {
+  gamePlay();
+}
+
+function gamePlay() {
 // Backend Movement System for Player One //
 function incrementValue1() {
   distance1 += 15;
@@ -58,16 +65,17 @@ function incrementValue2() {
 }
 
 document.addEventListener("keydown", function(event) {
-  if (event.code === "ArrowDown" && playerTwo !== "ArrowRight") {
+  if (event.code === "ArrowDown" && playerTwo !== "ArrowDown") {
     incrementValue2();
-    playerOne = "ArrowDown";
-  } else if (event.code === "ArrowDown" && playerTwo !== "ArrowRight") {
+    playerTwo = "ArrowDown";
+  } else if (event.code === "ArrowRight" && playerTwo !== "ArrowRight") {
     incrementValue2();
-    playerOne = "ArrowRight";
+    playerTwo = "ArrowRight";
   }
   console.log("playerTwo: " + playerTwo + ", distance2: " + distance2);
 });
 //
+}
 
 // When a player wins // 
 function checkVariable() {
@@ -83,4 +91,3 @@ function checkVariable() {
 function myFunction() {
   alert("My variable has exceeded the threshold of 10!");
 }
-
