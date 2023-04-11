@@ -42,6 +42,14 @@ if (gameMode === 2) {
 }
 
 function gamePlay() {
+// Hopefully this fucking reset button works//
+document.addEventListener("keydown", function(event) {
+  if (event.key === "r") {
+    distance1 = 0;
+    distance2 = 0;
+  }
+});
+
 // Backend Movement System for Player One //
 function incrementValue1() {
   distance1 += 15;
