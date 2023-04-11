@@ -1,0 +1,22 @@
+:root {
+    margin: 0;
+    padding: 0; 
+    display: grid;
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;    
+}
+
+.title {
+    position: absolute;
+    text-align: center;
+    font-size: 8vw;
+}
+
+script {
+    position: absolute;
+}

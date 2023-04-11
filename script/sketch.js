@@ -35,6 +35,13 @@ function draw() {
   if (distance1 > threshold) {
     rect(1100,100,100,100);
   }
+  
+}
+
+if (distance1 > threshold) {
+  gameMode = 1;
+  distance1 = 0;
+  distance2 = 0;
 }
 
 if (gameMode === 2) {
@@ -42,6 +49,7 @@ if (gameMode === 2) {
 }
 
 function gamePlay() {
+
 // Hopefully this fucking reset button works//
 document.addEventListener("keydown", function(event) {
   if (event.key === "r") {
@@ -85,6 +93,11 @@ document.addEventListener("keydown", function(event) {
   console.log("playerTwo: " + playerTwo + ", distance2: " + distance2);
 });
 //
+
+// Drawing of characters //
+
+
+
 }
 
 // When a player wins // 
@@ -99,5 +112,10 @@ function checkVariable() {
 }
 
 function myFunction() {
-  alert("My variable has exceeded the threshold of 10!");
+  if (distance1 > threshold) {
+    gameMode = 1;
+    distance1 = 0;
+    distance2 = 0;
+  }
+
 }
