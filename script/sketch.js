@@ -112,10 +112,6 @@ function checkVariable() {
 }
 
 function myFunction() {
-  if (distance1 > threshold) {
     gameMode = 1;
-    distance1 = 0;
-    distance2 = 0;
   }
 
-}
