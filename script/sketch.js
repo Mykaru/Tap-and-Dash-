@@ -1,13 +1,13 @@
-gameMode = 2;
+var gameStarted = false;
 
 // Player One // 
 let playerOne = null;
-let distance1 = 0;
-const threshold = 1200
+let distance1 = 30;
+const threshold = 1230
 
 // Player Two //
 let playerTwo = null;
-let distance2 = 0;
+let distance2 = 30;
 
 //Background image shit idk // 
 let bgImage;
@@ -23,29 +23,42 @@ function setup() {
 }
 
 function draw() {
-  background(bgImage);
+  background(bgImage)
 
-  fill(0,100,255)
-  rect(distance1, 480, 50, 50);
+  if (!gameStarted) {
+    // draw the title screen and start button
+    background(220);
+    textSize(96);
+    textAlign(CENTER);
+    fill(255,0,0)
+    text("Tap 'n Dash", width/2, height/2.75 - 50);
+    fill(0,255,100)
+    rectMode(CENTER);
+    rect(width/2, height/1.75, 180, 80 );
+    textSize(36);
+    textAlign(CENTER, CENTER);
+    fill(0)
+    text("Start", width/2, height/1.75);
+  } else {
+    // code for the actual gameplay
+    gamePlay()
+    
+    fill(0,100,255)
+    rect(distance1, 480, 50, 50);
 
-
-  fill(0,255,100)
-  rect(distance2, 620, 50, 50);
+    fill(0,255,100)
+    rect(distance2, 620, 50, 50);
+  } 
 
   if (distance1 > threshold) {
     rect(1100,100,100,100);
   }
-  
 }
 
-if (distance1 > threshold) {
-  gameMode = 1;
-  distance1 = 0;
-  distance2 = 0;
-}
-
-if (gameMode === 2) {
-  gamePlay();
+function mousePressed() {
+  if (!gameStarted && mouseX > width/2 - 90 && mouseX < width/2 + 90 && mouseY > height/1.75 - 40 && mouseY < height/1.75 + 40) {
+    gameStarted = true;
+  }
 }
 
 function gamePlay() {
