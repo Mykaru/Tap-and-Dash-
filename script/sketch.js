@@ -3,7 +3,7 @@ var gameStarted = false;
 // Player One // 
 let playerOne = null;
 let distance1 = 30;
-const threshold = 1230
+const threshold = 1215
 
 // Player Two //
 let playerTwo = null;
@@ -44,6 +44,10 @@ function draw() {
   } 
 
   if (distance1 > threshold) {
+    rect(1100,100,100,100);
+  }
+
+  if (distance2 > threshold) {
     rect(1100,100,100,100);
   }
 }
