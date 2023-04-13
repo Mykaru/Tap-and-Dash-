@@ -66,8 +66,8 @@ function gamePlay() {
 // Hopefully this fucking reset button works//
 document.addEventListener("keydown", function(event) {
   if (event.key === "r") {
-    distance1 = 0;
-    distance2 = 0;
+    distance1 = 30;
+    distance2 = 30;
 
     console.log("Players reset!")
   }
@@ -105,26 +105,6 @@ document.addEventListener("keydown", function(event) {
   }
   console.log("playerTwo: " + playerTwo + ", distance2: " + distance2);
 });
-//
-
-// Drawing of characters //
-
 
 
 }
-
-// When a player wins // 
-function checkVariable() {
-  let variableExceededThreshold = false;
-  while (!variableExceededThreshold) {
-    if (distance1 > threshold) {
-      variableExceededThreshold = true;
-      myFunction();
-    }
-  }
-}
-
-function myFunction() {
-    gameMode = 1;
-  }
-
