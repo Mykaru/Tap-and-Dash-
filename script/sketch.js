@@ -15,7 +15,8 @@ let windowHeight = screen.height;
 let windowWidth = screen.width;
 
 function preload() { 
-  bgImage = loadImage("img/track-sketch.jpg");
+  bgImage = loadImage("img/track-sketch.png");
+  titleScreen = loadImage("img/title-screen.png");
 }
 
 function setup() { 
@@ -27,21 +28,13 @@ function draw() {
 
   if (!gameStarted) {
     // draw the title screen and start button
-    background(220);
-    textSize(96);
-    textAlign(CENTER);
-    fill(255,0,0)
-    text("Tap 'n Dash", width/2, height/2.75 - 50);
-    fill(0,255,100)
-    rectMode(CENTER);
-    rect(width/2, height/1.75, 180, 80 );
-    textSize(36);
-    textAlign(CENTER, CENTER);
-    fill(0)
-    text("Start", width/2, height/1.75);
+    background(titleScreen);
+    
+    
   } else {
     // code for the actual gameplay
     gamePlay()
+    
     
     fill(0,100,255)
     rect(distance1, 480, 50, 50);
@@ -56,7 +49,7 @@ function draw() {
 }
 
 function mousePressed() {
-  if (!gameStarted && mouseX > width/2 - 90 && mouseX < width/2 + 90 && mouseY > height/1.75 - 40 && mouseY < height/1.75 + 40) {
+  if (!gameStarted && mouseX > width/2 - 200 && mouseX < width/2 + 200 && mouseY > height/1.5 - 50 && mouseY < height/1.5 + 50) {
     gameStarted = true;
   }
 }
