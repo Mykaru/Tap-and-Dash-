@@ -1,5 +1,5 @@
 var gameStarted = false;
-var applause = false;
+var applausePlayed = false;
 
 // Player One // 
 let playerOne = null;
@@ -46,15 +46,7 @@ function draw() {
 
     fill(0,255,100)
     rect(distance2, 620, 50, 50);
-
   } 
-
-  if (threshold < 1214) {
-    applause = false;
-  } else {
-    applause = true;
-    clappingSound();
-  }
 
   if (distance1 > threshold) {
     rect(1100,100,100,100);
@@ -62,6 +54,11 @@ function draw() {
 
   if (distance2 > threshold) {
     rect(1100,100,100,100);
+  }
+
+  if (distance1 || distance2 >= threshold && !applausePlayed) {
+    applauseSound.play();
+    applausePlayed = true;
   }
 }
 
@@ -117,9 +114,5 @@ document.addEventListener("keydown", function(event) {
   console.log("playerTwo: " + playerTwo + ", distance2: " + distance2);
 });
 
-function clappingSound() {
-  applauseSound.play();
 }
 
-
-}
