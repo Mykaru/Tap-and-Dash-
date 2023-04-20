@@ -1,4 +1,5 @@
 var gameStarted = false;
+var applause = false;
 
 // Player One // 
 let playerOne = null;
@@ -18,11 +19,16 @@ function preload() {
   bgImage = loadImage("img/track-sketch.png");
   titleScreen = loadImage("img/title-screen.png");
   startSound = loadSound("sound/start-theme.wav");
+  applauseSound = loadSound("sound/applause.wav")
 }
 
 function setup() { 
   createCanvas(1280, 720);
-}
+  startSound.setVolume(0.5);
+  startSound.loop();
+
+  applauseSound.setVolume(0.5);
+}  
 
 function draw() {
   background(bgImage)
@@ -30,20 +36,25 @@ function draw() {
   if (!gameStarted) {
     // draw the title screen and start button
     background(titleScreen);
-    startSound.play();
-    
     
   } else {
     // code for the actual gameplay
-    gamePlay()
-    
+    gamePlay();
     
     fill(0,100,255)
     rect(distance1, 480, 50, 50);
 
     fill(0,255,100)
     rect(distance2, 620, 50, 50);
+
   } 
+
+  if (threshold < 1214) {
+    applause = false;
+  } else {
+    applause = true;
+    clappingSound();
+  }
 
   if (distance1 > threshold) {
     rect(1100,100,100,100);
@@ -61,6 +72,7 @@ function mousePressed() {
 }
 
 function gamePlay() {
+  startSound.stop();
 
 // Hopefully this fucking reset button works//
 document.addEventListener("keydown", function(event) {
@@ -104,6 +116,10 @@ document.addEventListener("keydown", function(event) {
   }
   console.log("playerTwo: " + playerTwo + ", distance2: " + distance2);
 });
+
+function clappingSound() {
+  applauseSound.play();
+}
 
 
 }
