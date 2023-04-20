@@ -17,6 +17,7 @@ let windowWidth = screen.width;
 function preload() { 
   bgImage = loadImage("img/track-sketch.png");
   titleScreen = loadImage("img/title-screen.png");
+  startSound = loadSound("sound/start-theme.wav");
 }
 
 function setup() { 
@@ -29,6 +30,7 @@ function draw() {
   if (!gameStarted) {
     // draw the title screen and start button
     background(titleScreen);
+    startSound.play();
     
     
   } else {
