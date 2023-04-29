@@ -25,7 +25,7 @@ function preload() {
 function setup() { 
   createCanvas(1280, 720);
   startSound.setVolume(0.5);
-  startSound.loop();
+  //startSound.loop();
 
   applauseSound.setVolume(0.5);
 }  
@@ -57,7 +57,7 @@ function draw() {
   }
 
   if (distance1 || distance2 >= threshold && !applausePlayed) {
-    applauseSound.play();
+    //clapping ()
     applausePlayed = true;
   }
 }
@@ -68,8 +68,12 @@ function mousePressed() {
   }
 }
 
+function clapping () {
+  //applauseSound.play();
+}
+
 function gamePlay() {
-  startSound.stop();
+  //startSound.stop();
 
 // Hopefully this fucking reset button works//
 document.addEventListener("keydown", function(event) {
