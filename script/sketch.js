@@ -1,5 +1,5 @@
-var gameStarted = false;
-var applausePlayed = false;
+let gameStarted = false;
+let applausePlayed = false;
 
 // Player One // 
 let playerOne = null;
@@ -25,7 +25,7 @@ function preload() {
 function setup() { 
   createCanvas(1280, 720);
   startSound.setVolume(0.5);
-  //startSound.loop();
+  startSound.loop();
 
   applauseSound.setVolume(0.5);
 }  
@@ -56,15 +56,17 @@ function draw() {
     rect(1100,100,100,100);
   }
 
-  if (distance1 || distance2 >= threshold && !applausePlayed) {
-    //clapping ()
-    applausePlayed = true;
-  }
+
 }
 
 function mousePressed() {
   if (!gameStarted && mouseX > width/2 - 200 && mouseX < width/2 + 200 && mouseY > height/1.5 - 50 && mouseY < height/1.5 + 50) {
     gameStarted = true;
+  }
+
+  if (startSound.isPlaying()) {
+    // .isPlaying() returns a boolean
+    startSound.stop();
   }
 }
 
@@ -117,6 +119,28 @@ document.addEventListener("keydown", function(event) {
   }
   console.log("playerTwo: " + playerTwo + ", distance2: " + distance2);
 });
-
 }
 
+
+// Code for applause // 
+document.addEventListener("keydown", function(event) {
+  if (event.code === "ArrowUp" || event.code === "ArrowRight") {
+    clapping();
+  }
+});
+
+function clapping () {
+  if (distance1 === threshold) {
+    applauseSound.play();
+    setTimeout(restartGame, 10000);
+  }
+  else if (distance2 === threshold) {
+    applauseSound.play();
+    setTimeout(restartGame, 10000);
+  }
+}
+
+function restartGame () {
+  gameStarted = false;
+  applauseSound.stop();
+}
