@@ -81,10 +81,6 @@ function mousePressed() {
 
 function gamePlay() {
 
-if (gameStarted = false) {
-  return;
-}
-
 // Hopefully this fucking reset button works//
 document.addEventListener("keydown", function(event) {
   if (event.key === "r") {
@@ -137,13 +133,13 @@ document.addEventListener("keydown", function(event) {
   }
 });
 
-function clapping () {
+function clapping() {
   if (distance1 === threshold && distance2 < threshold) {
     applauseSound.play();
     setTimeout(restartGame, 10000);
     playeroneWins = true
   }
- if (distance2 === threshold && distance1 < threshold) {
+  if (distance2 === threshold && distance1 < threshold) {
     applauseSound.play();
     setTimeout(restartGame, 10000);
     playertwoWins = true
@@ -151,10 +147,7 @@ function clapping () {
 }
 
 function restartGame () {
-  gameStarted = false;
-  applauseSound.stop();
-  distance1 = 30;
-  distance2 = 30;
+  
 
-  console.log("Players reset!")
+  location.reload();
 }
