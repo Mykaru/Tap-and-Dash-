@@ -1,5 +1,8 @@
 let gameStarted = false;
 let applausePlayed = false;
+let playeroneWins = false;
+let playertwoWins = false;
+
 
 // Player One // 
 let playerOne = null;
@@ -19,15 +22,16 @@ function preload() {
   bgImage = loadImage("img/track-sketch.png");
   titleScreen = loadImage("img/title-screen.png");
   startSound = loadSound("sound/start-theme.wav");
-  applauseSound = loadSound("sound/applause.wav")
+  applauseSound = loadSound("sound/applause.wav");
+  runnerStart = loadSound("sound/Ready-Set-Go.mp4")
 }
 
 function setup() { 
   createCanvas(1280, 720);
   startSound.setVolume(0.5);
   startSound.loop();
-
   applauseSound.setVolume(0.5);
+  textAlign(CENTER, CENTER)
 }  
 
 function draw() {
@@ -36,46 +40,46 @@ function draw() {
   if (!gameStarted) {
     // draw the title screen and start button
     background(titleScreen);
+    playeroneWins = false
+    playertwoWins = false
     
   } else {
     // code for the actual gameplay
-    gamePlay();
+    setTimeout(gamePlay, 6000);
     
-    fill(0,100,255)
+    fill(0,100,255);
     rect(distance1, 480, 50, 50);
 
-    fill(0,255,100)
+    fill(0,255,100);
     rect(distance2, 620, 50, 50);
   } 
 
-  if (distance1 > threshold) {
-    rect(1100,100,100,100);
+  if (playeroneWins) {
+    textSize(64);
+    fill(255)
+    text("PLAYER ONE WINS!", width/2, height/2.75)
   }
 
-  if (distance2 > threshold) {
-    rect(1100,100,100,100);
+  if (playertwoWins) {
+    textSize(64);
+    fill(255)
+    text("PLAYER TWO WINS!", width/2, height/2.75)
   }
-
 
 }
 
 function mousePressed() {
   if (!gameStarted && mouseX > width/2 - 200 && mouseX < width/2 + 200 && mouseY > height/1.5 - 50 && mouseY < height/1.5 + 50) {
     gameStarted = true;
+    runnerStart.play()
   }
 
   if (startSound.isPlaying()) {
-    // .isPlaying() returns a boolean
     startSound.stop();
   }
 }
 
-function clapping () {
-  //applauseSound.play();
-}
-
 function gamePlay() {
-  //startSound.stop();
 
 // Hopefully this fucking reset button works//
 document.addEventListener("keydown", function(event) {
@@ -130,13 +134,15 @@ document.addEventListener("keydown", function(event) {
 });
 
 function clapping () {
-  if (distance1 === threshold) {
+  if (distance1 === threshold && distance2 < threshold) {
     applauseSound.play();
     setTimeout(restartGame, 10000);
+    playeroneWins = true
   }
-  else if (distance2 === threshold) {
+  else if (distance2 === threshold && distance1 < threshold) {
     applauseSound.play();
     setTimeout(restartGame, 10000);
+    playertwoWins = true
   }
 }
 
