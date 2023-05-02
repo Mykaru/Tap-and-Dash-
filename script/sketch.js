@@ -18,12 +18,23 @@ let bgImage;
 let windowHeight = screen.height;
 let windowWidth = screen.width;
 
+//Player image dimensions
+let customWidth = 250;
+let customHeight = 350;
+
+
 function preload() { 
   bgImage = loadImage("img/track-sketch.png");
   titleScreen = loadImage("img/title-screen.png");
   startSound = loadSound("sound/start-theme.wav");
   applauseSound = loadSound("sound/applause.wav");
   runnerStart = loadSound("sound/Ready-Set-Go.mp4")
+
+  oneStart = loadImage("img/one-start.png");
+  oneRun = loadImage("img/one-run.png");
+
+  twoStart = loadImage("img/two-start.png");
+  twoRun = loadImage("img/two-run.png");
 }
 
 function setup() { 
@@ -47,11 +58,13 @@ function draw() {
     // code for the actual gameplay
     setTimeout(gamePlay, 6000);
     
-    fill(0,100,255);
-    rect(distance1, 480, 50, 50);
+    //Player One
+    image(oneRun, distance1, 175, customWidth, customHeight);
 
-    fill(0,255,100);
-    rect(distance2, 620, 50, 50);
+    //Player Two
+    image(twoRun, distance2, 350, customWidth, customHeight);
+
+    
   } 
 
   if (playeroneWins) {
