@@ -63,8 +63,6 @@ function draw() {
 
     //Player Two
     image(twoRun, distance2, 350, customWidth, customHeight);
-
-    
   } 
 
   if (playeroneWins) {
@@ -141,26 +139,34 @@ document.addEventListener("keydown", function(event) {
 
 // Code for applause // 
 document.addEventListener("keydown", function(event) {
-  if (event.code === "ArrowUp" || event.code === "ArrowRight") {
+  if (event.code === "ArrowUp") {
     clapping();
   }
 });
 
 function clapping() {
-  if (distance1 === threshold && distance2 < threshold) {
+  if (distance1 >= threshold && distance2 < threshold) {
     applauseSound.play();
     setTimeout(restartGame, 10000);
     playeroneWins = true
   }
-  if (distance2 === threshold && distance1 < threshold) {
+}
+
+document.addEventListener("keydown", function(event) {
+  if (event.code === "ArrowRight") {
+    clapping2();
+  }
+});
+
+function clapping2() {
+  if (distance2 >= threshold && distance1 < threshold) {
     applauseSound.play();
     setTimeout(restartGame, 10000);
     playertwoWins = true
   }
 }
 
-function restartGame () {
-  
 
+function restartGame () {
   location.reload();
 }
