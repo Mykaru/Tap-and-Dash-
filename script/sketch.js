@@ -46,7 +46,7 @@ function setup() {
 }  
 
 function draw() {
-  background(bgImage)
+  background(bgImage, 500, 500)
 
   if (!gameStarted) {
     // draw the title screen and start button
