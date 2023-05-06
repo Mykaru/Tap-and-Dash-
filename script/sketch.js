@@ -2,12 +2,12 @@ let gameStarted = false;
 let applausePlayed = false;
 let playeroneWins = false;
 let playertwoWins = false;
-
+let increment = 10;
 
 // Player One // 
 let playerOne = null;
 let distance1 = 30;
-const threshold = 1215
+const threshold = 1200
 
 // Player Two //
 let playerTwo = null;
@@ -46,7 +46,7 @@ function setup() {
 }  
 
 function draw() {
-  background(bgImage, 500, 500)
+  background(bgImage)
 
   if (!gameStarted) {
     // draw the title screen and start button
@@ -104,7 +104,7 @@ document.addEventListener("keydown", function(event) {
 
 // Backend Movement System for Player One //
 function incrementValue1() {
-  distance1 += 15;
+  distance1 += increment;
 }
 
 document.addEventListener("keydown", function(event) {
@@ -121,7 +121,7 @@ document.addEventListener("keydown", function(event) {
 
 // Backend Movement System for Player One //
 function incrementValue2() {
-  distance2 += 15;
+  distance2 += increment;
 }
 
 document.addEventListener("keydown", function(event) {
